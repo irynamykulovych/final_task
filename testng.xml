@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Run all tests" verbose="1">
+
+    <listeners>
+        <listener class-name="framework.pages.listeners.MyListener"/>
+    </listeners>
+
+    <test name="Subscribe with valid text test">
+        <classes>
+            <class name="ui.SubscribeTest"/>
+        </classes>
+    </test>
+
+    <test name="Check languages test">
+        <classes>
+            <class name="ui.CheckLanguagesTest"/>
+        </classes>
+    </test>
+
+    <test name="Registration tests">
+        <classes>
+            <class name="ui.RegistrationWithValidDataTest"/>
+            <class name="ui.RegistrationWithInvalidDataTest"/>
+        </classes>
+    </test>
+
+    <test name="Check categories test">
+        <classes>
+            <class name="ui.CheckCategoriesTest"/>
+        </classes>
+    </test>
+
+    <test name="Check popular products test">
+        <classes>
+            <class name="ui.CheckPopularProductsTest"/>
+        </classes>
+    </test>
+
+    <test name="Price drop check test">
+        <classes>
+            <class name="ui.PriceDropCheckTest"/>
+        </classes>
+    </test>
+
+    <test name="Sorting check test">
+        <classes>
+            <class name="ui.SortingCheckTest"/>
+        </classes>
+    </test>
+
+    <test name="Adding to cart test">
+        <classes>
+            <class name="ui.AddingToCartTest"/>
+        </classes>
+    </test>
+
+    <test name="Checkout end-to-end test">
+        <classes>
+            <class name="ui.CheckoutEndToEndTest"/>
+        </classes>
+    </test>
+
+
+</suite>
