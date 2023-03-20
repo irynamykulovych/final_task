@@ -57,7 +57,7 @@ public class Helpers {
   }
 
   public static Double convertStringPriceToDouble(String value) {
-    String priceStr = value.replaceAll("[^\\d.]", ""); // remove non-numeric characters
+    String priceStr = value.replaceAll("[^\\d.]", "");
     return Double.parseDouble(priceStr);
   }
 

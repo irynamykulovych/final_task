@@ -2,6 +2,7 @@ package framework.pages;
 
 
 import io.qameta.allure.Step;
+import java.time.Duration;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
@@ -36,10 +37,7 @@ public class ProductDetailsPage extends BasePage {
     return this;
   }
 
-
-  @SneakyThrows
   public ProductDetailsPage changeQuantity(String value) {
-    Thread.sleep(5000);
     WebElement quantityInput = find(quantityLocator);
     String currentValue = quantityInput.getAttribute("value");
     if (!currentValue.isEmpty()) {

@@ -32,7 +32,11 @@ public class RegistrationPage extends BasePage {
   private final By shippingMethodMyCarrierLocator = By.id("delivery_option_2");
   private final By confirmDeliveryButtonLocator = By.xpath
       ("//button[@name='confirmDeliveryOption']");
-  private final By payByCheckPaymentLocator = By.xpath("//input[@id='payment-option-1']");
+  private final By payByCheckPaymentLocator = By.xpath
+      ("//input[@id='payment-option-1']");
+  private final By termsCheckboxLocator = By.id("conditions_to_approve[terms-and-conditions]");
+  private final By placeOrderButtonLocator = By.xpath
+      ("//div[@id='payment-confirmation']/div/button");
 
   @SneakyThrows
   @Step("Click on social title [Mr]")
@@ -158,5 +162,17 @@ public class RegistrationPage extends BasePage {
     return this;
   }
 
+  @SneakyThrows
+  @Step("Click on ['I agree..'] checkbox")
+  public RegistrationPage clickTermsCheckbox() {
+    Thread.sleep(5000);
+    clickOnLocator(termsCheckboxLocator);
+    return this;
+  }
 
+  @Step("Click on [PLACE ORDER] button")
+  public RegistrationPage clickPlaceOrderButton() {
+    clickOnLocator(placeOrderButtonLocator);
+    return this;
+  }
 }

@@ -1,14 +1,10 @@
 package framework.pages;
 
-import framework.pages.components.ProductComponent.PriceOfDropProductModel;
 import io.qameta.allure.Step;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 @Log4j2
 public class ShoppingCartPage extends BasePage{

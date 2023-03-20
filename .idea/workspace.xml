@@ -4,39 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fc296a0-fc11-4ec8-a47e-fa0c0b23ad2b" name="Changes" comment="Gitignore file is changed">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/AcceptProductPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/BrowserFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/PricesDropPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ProductDetailsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ProductPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/RegistrationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/SearchResultPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ShoppingCartPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/components/ProductComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/helpers/Helpers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/listeners/MyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/allure.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/AddingToCartTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/CheckCategoriesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/CheckLanguagesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/CheckPopularProductsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/CheckoutEndToEndTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/PriceDropCheckTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/RegistrationWithInvalidDataTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/RegistrationWithValidDataTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/SortingCheckTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/SubscribeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+    <list default="true" id="7fc296a0-fc11-4ec8-a47e-fa0c0b23ad2b" name="Changes" comment="New tests is added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/framework/pages/OrderConfirmationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/AcceptProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/AcceptProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/PricesDropPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/PricesDropPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/ProductDetailsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ProductDetailsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/RegistrationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/ShoppingCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ShoppingCartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/components/ProductComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/components/ProductComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/helpers/Helpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/helpers/Helpers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ui/AddingToCartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/AddingToCartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ui/CheckoutEndToEndTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/CheckoutEndToEndTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677325472097</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="New tests is added">
+      <created>1679341111467</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679341111467</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Gitignore file is changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gitignore file is changed" />
+    <MESSAGE value="New tests is added" />
+    <option name="LAST_COMMIT_MESSAGE" value="New tests is added" />
   </component>
 </project>

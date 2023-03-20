@@ -2,11 +2,6 @@ package framework.pages.components;
 
 import framework.pages.BasePage;
 import framework.pages.ProductPage;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.util.Locale;
 import lombok.Data;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
