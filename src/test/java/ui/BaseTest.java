@@ -43,7 +43,5 @@ public class BaseTest {
             getWebDriver().quit();
             BasePage.getDriverThreadLocal().remove();
         }
-
-
     }
 }

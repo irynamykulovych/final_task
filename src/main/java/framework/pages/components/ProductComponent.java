@@ -24,11 +24,6 @@ public class ProductComponent extends BasePage {
     this.name = nameWe.getText();
   }
 
-  public ProductPage clickOnProduct() {
-    nameWe.click();
-    return new ProductPage();
-  }
-
   @Data
   public static class PriceOfDropProductModel {
 

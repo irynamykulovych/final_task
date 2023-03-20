@@ -5,7 +5,6 @@ import framework.pages.OrderConfirmationPage;
 import framework.pages.ProductDetailsPage;
 import framework.pages.RegistrationPage;
 import framework.pages.ShoppingCartPage;
-
 import framework.pages.helpers.Helpers;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Listeners;

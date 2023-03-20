@@ -3,7 +3,6 @@ package framework.pages;
 import framework.pages.components.ProductComponent;
 import io.qameta.allure.Step;
 import java.util.ArrayList;
-import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

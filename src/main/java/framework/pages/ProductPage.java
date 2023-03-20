@@ -47,6 +47,7 @@ public class ProductPage extends BasePage {
     waitUntilElementClickable(dropdownLHItemsLocator, 10).click();
     return this;
   }
+
   @SneakyThrows
   public ProductPage selectHLSortByDropDown() {
     Thread.sleep(5000);

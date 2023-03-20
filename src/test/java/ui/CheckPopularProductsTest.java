@@ -2,10 +2,8 @@ package ui;
 
 
 import static framework.pages.helpers.Helpers.getPrice;
-
 import framework.pages.MainPage;
 import framework.pages.components.ProductComponent;
-import framework.pages.helpers.Helpers;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Listeners;

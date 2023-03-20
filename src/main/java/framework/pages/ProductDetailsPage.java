@@ -1,8 +1,6 @@
 package framework.pages;
 
-
 import io.qameta.allure.Step;
-import java.time.Duration;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;

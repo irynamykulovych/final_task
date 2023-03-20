@@ -1,10 +1,7 @@
 package ui;
 
-import static framework.pages.helpers.Helpers.getPrice;
-
 import framework.pages.MainPage;
 import framework.pages.PricesDropPage;
-
 import framework.pages.components.ProductComponent.PriceOfDropProductModel;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;

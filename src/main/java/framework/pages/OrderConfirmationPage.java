@@ -1,7 +1,6 @@
 package framework.pages;
 
 import io.qameta.allure.Step;
-import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 
 public class OrderConfirmationPage extends BasePage {
