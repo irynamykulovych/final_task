@@ -6,6 +6,7 @@ import framework.pages.ProductDetailsPage;
 import framework.pages.RegistrationPage;
 import framework.pages.ShoppingCartPage;
 import framework.pages.helpers.Helpers;
+import java.math.BigDecimal;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -26,7 +27,7 @@ public class CheckoutEndToEndTest extends BaseTest {
         .enterProductCustomizationText("Best mug ever")
         .clickSaveCustomizationButton();
 
-    String customizableMugPrice = productDetailsPage.getPrice();
+    String customizableMugPriceStr = productDetailsPage.getPrice();
 
     productDetailsPage.clickAddToCartButton()
         .clickContinueShoppingButton()
@@ -34,18 +35,19 @@ public class CheckoutEndToEndTest extends BaseTest {
         .clickHummingbirdPrintedTShirt()
         .selectColor();
 
-    String tShirtPrice = productDetailsPage.getPrice();
+    String tShirtPriceStr = productDetailsPage.getPrice();
 
     productDetailsPage.clickAddToCartButton()
         .clickProceedToCheckoutButton();
 
-    String totalPrice = shoppingCartPage.getTotalPrice();
-    String actualTotalPrice = String.valueOf(
-        Helpers.convertStringPriceToDouble(customizableMugPrice)
-            +Helpers.convertStringPriceToDouble(tShirtPrice));
-    String expectedTotalPrice = String.valueOf(Helpers.convertStringPriceToDouble(totalPrice));
+    String totalPriceStr = shoppingCartPage.getTotalPrice();
 
-        SoftAssertions softAssertions = new SoftAssertions();
+    BigDecimal customizableMug = new BigDecimal(customizableMugPriceStr);
+    BigDecimal tShirtPrice = new BigDecimal(tShirtPriceStr);
+    BigDecimal actualTotalPrice = new BigDecimal(totalPriceStr);
+    BigDecimal expectedTotalPrice = customizableMug.add(tShirtPrice);
+
+    SoftAssertions softAssertions = new SoftAssertions();
     softAssertions.assertThat(actualTotalPrice)
         .as("Total price is not equals expected")
         .isEqualTo(expectedTotalPrice);
@@ -67,16 +69,18 @@ public class CheckoutEndToEndTest extends BaseTest {
         .clickConfirmDeliveryButton()
         .clickPayByCheckPayment();
 
-    String subtotalPrice = shoppingCartPage.getSubtotalPrice();
-    String shippingPrice = shoppingCartPage.getShippingPrice();
-    String newTotalPrice = shoppingCartPage.getTotalPrice();
-    String expectedNewTotalPrice = String.valueOf(
-        Helpers.convertStringPriceToDouble(subtotalPrice)
-            +Helpers.convertStringPriceToDouble(shippingPrice));
+    String subtotalPriceStr = shoppingCartPage.getSubtotalPrice();
+    String shippingPriceStr = shoppingCartPage.getShippingPrice();
+    String newTotalPriceStr = shoppingCartPage.getTotalPrice();
 
-    softAssertions.assertThat(expectedNewTotalPrice)
+    BigDecimal subtotalPrice = new BigDecimal(subtotalPriceStr);
+    BigDecimal shippingPrice = new BigDecimal(shippingPriceStr);
+    BigDecimal actualNewTotalPrice = new BigDecimal(newTotalPriceStr);
+    BigDecimal expectedNewTotalPrice = subtotalPrice.add(shippingPrice);
+
+    softAssertions.assertThat(actualNewTotalPrice)
         .as("Total price is not equals expected")
-        .isEqualTo(Helpers.convertStringPriceToDouble(newTotalPrice));
+        .isEqualTo(expectedNewTotalPrice);
 
     registrationPage.clickTermsCheckbox()
         .clickPlaceOrderButton();
@@ -89,17 +93,29 @@ public class CheckoutEndToEndTest extends BaseTest {
             + "[Your order is confirmed]")
         .isEqualTo(exceptedTitle);
 
-    String lastSubtotalPrice = orderConfirmationPage.getLastSubtotalPrice();
-    String lastShippingPrice = orderConfirmationPage.getLastShippingPrice();
-    String lastTotalPrice = orderConfirmationPage.getLastTotalPrice();
-    String expectedLastTotalPrice = String.valueOf(
-        Helpers.convertStringPriceToDouble(lastSubtotalPrice)
-            +Helpers.convertStringPriceToDouble(lastShippingPrice));
+//    String lastSubtotalPrice = orderConfirmationPage.getLastSubtotalPrice();
+//    String lastShippingPrice = orderConfirmationPage.getLastShippingPrice();
+//    String lastTotalPrice = orderConfirmationPage.getLastTotalPrice();
+//    String expectedLastTotalPrice = String.valueOf(
+//        Helpers.convertStringPriceToDouble(lastSubtotalPrice)
+//            +Helpers.convertStringPriceToDouble(lastShippingPrice));
+//
+//    softAssertions.assertThat(expectedLastTotalPrice)
+//        .as("Total price is not equals expected")
+//        .isEqualTo(Helpers.convertStringPriceToDouble(lastTotalPrice));
 
-    softAssertions.assertThat(expectedLastTotalPrice)
+    String lastSubtotalPriceStr = orderConfirmationPage.getLastSubtotalPrice();
+    String lastShippingPriceStr = orderConfirmationPage.getLastShippingPrice();
+    String lastTotalPriceStr = orderConfirmationPage.getLastTotalPrice();
+
+    BigDecimal lastSubtotalPrice = new BigDecimal(lastSubtotalPriceStr);
+    BigDecimal lastShippingPrice = new BigDecimal(lastShippingPriceStr);
+    BigDecimal actualLastTotalPrice = new BigDecimal(lastTotalPriceStr);
+    BigDecimal expectedLastTotalPrice = lastSubtotalPrice.add(lastShippingPrice);
+
+    softAssertions.assertThat(actualLastTotalPrice)
         .as("Total price is not equals expected")
-        .isEqualTo(Helpers.convertStringPriceToDouble(lastTotalPrice));
-
+        .isEqualTo(expectedLastTotalPrice);
 
     softAssertions.assertAll();
   }

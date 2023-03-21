@@ -52,12 +52,21 @@ public class AcceptProductPage extends BasePage{
 
   @Step("Get one price")
   public String getOnePrice() {
-    return waitUntilElementClickable(onePriceLocator, 10).getText();
+    return waitUntilElementClickable(onePriceLocator, 10).getText()
+        .replaceAll("[^\\d.]", "");
+
+//    public String getConfirmationText() {
+//      return find(confirmationTextLocator).getText()
+//          .replace(find(confirmationTextIconLocator).getText(), "").trim();
+//    }
   }
+
+
 
   @Step("Get total price")
   public String getTotalPrice() {
-    return waitUntilElementClickable(totalPriceLocator, 10).getText();
+    return waitUntilElementClickable(totalPriceLocator, 10).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
 }

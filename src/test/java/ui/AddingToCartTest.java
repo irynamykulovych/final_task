@@ -2,7 +2,6 @@ package ui;
 
 import framework.pages.AcceptProductPage;
 import framework.pages.MainPage;
-import framework.pages.helpers.Helpers;
 import java.math.BigDecimal;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Listeners;
@@ -45,34 +44,18 @@ public class AddingToCartTest extends BaseTest {
         .as("We expected that the [5] Quantity should be on the page")
         .isEqualTo(exceptQuantity);
 
-//    String onePrice = acceptProductPage.getOnePrice();
-//    String quantity = String.valueOf(acceptProductPage.getQuantity());
-//    String totalPrice = acceptProductPage.getTotalPrice();
-//    Double expectedTotalPrice;
-//    expectedTotalPrice = Helpers.convertStringPriceToDouble(onePrice)
-//        * Double.parseDouble(quantity);
-
-//    BigDecimal onePrice = new BigDecimal(acceptProductPage.getOnePrice());
-//    BigDecimal quantity = new BigDecimal(acceptProductPage.getQuantity());
-//    BigDecimal totalPrice = new BigDecimal(acceptProductPage.getTotalPrice());
-//    BigDecimal expectedTotalPrice;
-//    expectedTotalPrice = onePrice.multiply(quantity);
-
-    String onePriceStr = acceptProductPage.getOnePrice()
-        .replaceAll("[^\\d.]", "");
-    String quantityStr = String.valueOf(acceptProductPage.getQuantity())
-        .replaceAll("[^\\d.]", "");
-    String totalPriceStr = acceptProductPage.getTotalPrice()
-        .replaceAll("[^\\d.]", "");
+    String onePriceStr = acceptProductPage.getOnePrice();
+    String quantityStr = String.valueOf(acceptProductPage.getQuantity());
+    String totalPriceStr = acceptProductPage.getTotalPrice();
 
     BigDecimal onePrice = new BigDecimal(onePriceStr);
     BigDecimal quantity = new BigDecimal(quantityStr);
-    BigDecimal totalPrice = new BigDecimal(totalPriceStr);
+    BigDecimal actualTotalPrice = new BigDecimal(totalPriceStr);
     BigDecimal expectedTotalPrice = onePrice.multiply(quantity);
 
-    softAssertions.assertThat(expectedTotalPrice)
+    softAssertions.assertThat(actualTotalPrice)
         .as("Total price is not equals expected")
-        .isEqualTo(totalPrice);
+        .isEqualTo(expectedTotalPrice);
 
 
     softAssertions.assertAll();

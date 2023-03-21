@@ -61,7 +61,8 @@ public class ProductDetailsPage extends BasePage {
   }
 
   public String getPrice() {
-    return find(priceLocator).getText();
+    return find(priceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
   @Step("Click [ADD TO CART] button")

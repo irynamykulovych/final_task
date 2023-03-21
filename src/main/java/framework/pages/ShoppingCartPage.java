@@ -29,18 +29,21 @@ public class ShoppingCartPage extends BasePage{
   @SneakyThrows
   public String getTotalPrice() {
     Thread.sleep(5000);
-    return find(totalPriceLocator).getText();
+    return find(totalPriceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
   @SneakyThrows
   public String getSubtotalPrice() {
     Thread.sleep(5000);
-    return find(subtotalPriceLocator).getText();
+    return find(subtotalPriceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
   @SneakyThrows
   public String getShippingPrice() {
     Thread.sleep(5000);
-    return find(shippingPriceLocator).getText();
+    return find(shippingPriceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 }

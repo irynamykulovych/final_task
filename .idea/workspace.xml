@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fc296a0-fc11-4ec8-a47e-fa0c0b23ad2b" name="Changes" comment="AddingToCartTest and CheckoutEndToEndTest are updated">
+    <list default="true" id="7fc296a0-fc11-4ec8-a47e-fa0c0b23ad2b" name="Changes" comment="AddingToCartTest is changed. Added BigDecimal for prices.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/AcceptProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/AcceptProductPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/OrderConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/OrderConfirmationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/PricesDropPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/PricesDropPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/ProductDetailsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ProductDetailsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ProductPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/components/ProductComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/components/ProductComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/helpers/Helpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/helpers/Helpers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/pages/ShoppingCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/pages/ShoppingCartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ui/AddingToCartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/AddingToCartTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ui/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ui/CheckPopularProductsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/CheckPopularProductsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ui/CheckoutEndToEndTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/CheckoutEndToEndTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ui/PriceDropCheckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/PriceDropCheckTest.java" afterDir="false" />
     </list>
@@ -136,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679351891423</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="AddingToCartTest is changed. Added BigDecimal for prices.">
+      <created>1679353856094</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679353856094</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +156,7 @@
     <MESSAGE value="Gitignore file is changed" />
     <MESSAGE value="New tests is added" />
     <MESSAGE value="AddingToCartTest and CheckoutEndToEndTest are updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="AddingToCartTest and CheckoutEndToEndTest are updated" />
+    <MESSAGE value="AddingToCartTest is changed. Added BigDecimal for prices." />
+    <option name="LAST_COMMIT_MESSAGE" value="AddingToCartTest is changed. Added BigDecimal for prices." />
   </component>
 </project>

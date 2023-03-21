@@ -19,15 +19,18 @@ public class OrderConfirmationPage extends BasePage {
   }
 
   public String getLastTotalPrice() {
-    return find(lastTotalPriceLocator).getText();
+    return find(lastTotalPriceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
   public String getLastSubtotalPrice() {
-    return find(lastSubtotalPriceLocator).getText();
+    return find(lastSubtotalPriceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
   public String getLastShippingPrice() {
-    return find(lastShippingPriceLocator).getText();
+    return find(lastShippingPriceLocator).getText()
+        .replaceAll("[^\\d.]", "");
   }
 
 }
