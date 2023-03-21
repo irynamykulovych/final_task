@@ -93,16 +93,6 @@ public class CheckoutEndToEndTest extends BaseTest {
             + "[Your order is confirmed]")
         .isEqualTo(exceptedTitle);
 
-//    String lastSubtotalPrice = orderConfirmationPage.getLastSubtotalPrice();
-//    String lastShippingPrice = orderConfirmationPage.getLastShippingPrice();
-//    String lastTotalPrice = orderConfirmationPage.getLastTotalPrice();
-//    String expectedLastTotalPrice = String.valueOf(
-//        Helpers.convertStringPriceToDouble(lastSubtotalPrice)
-//            +Helpers.convertStringPriceToDouble(lastShippingPrice));
-//
-//    softAssertions.assertThat(expectedLastTotalPrice)
-//        .as("Total price is not equals expected")
-//        .isEqualTo(Helpers.convertStringPriceToDouble(lastTotalPrice));
 
     String lastSubtotalPriceStr = orderConfirmationPage.getLastSubtotalPrice();
     String lastShippingPriceStr = orderConfirmationPage.getLastShippingPrice();

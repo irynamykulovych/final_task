@@ -17,7 +17,7 @@ public class AddingToCartTest extends BaseTest {
     AcceptProductPage acceptProductPage = mainPage.enterProductName("Bear")
         .clickBrownBearNotebook()
         .selectDoterPaperType()
-        .changeQuantity(String.valueOf(5))
+        .changeQuantityToFive()
         .clickAddToCartButton();
 
     SoftAssertions softAssertions = new SoftAssertions();

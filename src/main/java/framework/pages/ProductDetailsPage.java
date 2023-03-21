@@ -35,13 +35,9 @@ public class ProductDetailsPage extends BasePage {
     return this;
   }
 
-  public ProductDetailsPage changeQuantity(String value) {
+  public ProductDetailsPage changeQuantityToFive() {
     WebElement quantityInput = find(quantityLocator);
-    String currentValue = quantityInput.getAttribute("value");
-    if (!currentValue.isEmpty()) {
-      quantityInput.clear();
-    }
-    quantityInput.sendKeys(value);
+    quantityInput.sendKeys(Keys.chord(Keys.CONTROL, "a"), "5");
     return this;
   }
 
