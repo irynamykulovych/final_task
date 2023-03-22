@@ -4,6 +4,8 @@ import com.github.javafaker.Faker;
 import framework.pages.BasePage;
 import framework.pages.components.ProductComponent;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
@@ -49,25 +51,61 @@ public class Helpers {
     return ((TakesScreenshot) BasePage.getWebDriver()).getScreenshotAs(OutputType.BYTES);
   }
 
-  public static double getPrice(String value) {
-    return Double.valueOf(value.replace("€", ""));
-  }
-
-  public static Double convertStringPriceToDouble(String value) {
-    String priceStr = value.replaceAll("[^\\d.]", "");
-    return Double.parseDouble(priceStr);
-  }
-
   @SneakyThrows
+  @Step("Get all products")
   public static List<ProductComponent> getAllProducts() {
     Thread.sleep(5000);
-    List<ProductComponent> products = new ArrayList<>();
-    List<WebElement> containers = BasePage.findAll(productContainerLocator);
-    for (WebElement container : containers) {
-      ProductComponent productComponent = new ProductComponent(container);
-      products.add(productComponent);
+    List<WebElement> webElementList = BasePage.findAll(productContainerLocator);
+    List<ProductComponent> result = new ArrayList<>();
+    for (WebElement element : webElementList) {
+      result.add(new ProductComponent(element));
     }
-    return products;
+    return result;
+  }
+
+  public static List<BigDecimal> getOldProductPrices(List<ProductComponent> products) {
+    List<BigDecimal> oldProductPrices = new ArrayList<>();
+    for (ProductComponent productComponent : products) {
+      oldProductPrices.add(productComponent.getOldPrice());
+    }
+    return oldProductPrices;
+  }
+
+  public static List<BigDecimal> getNewProductPrices(List<ProductComponent> products) {
+    List<BigDecimal> newProductPrices = new ArrayList<>();
+    for (ProductComponent productComponent : products) {
+      newProductPrices.add(productComponent.getOldPrice());
+    }
+    return newProductPrices;
+  }
+
+  public static List<BigDecimal> getSortedProductPrices(List<ProductComponent> productComponents) {
+    List<BigDecimal> result = new ArrayList<>();
+    for (ProductComponent productComponent : productComponents) {
+      if (productComponent.getOldPrice() != null) {
+        result.add(productComponent.getOldPrice());
+      } else {
+        result.add(productComponent.getPrice());
+      }
+    }
+    return result;
+  }
+
+  public static BigDecimal getDiscountFromProducts(BigDecimal oldPrice, int discount) {
+    return oldPrice.multiply(new BigDecimal(100 - discount))
+        .divide(new BigDecimal(100))
+        .setScale(2, BigDecimal.ROUND_HALF_DOWN);
+  }
+
+  public static List<BigDecimal> getCalculatedDiscount(List<ProductComponent> products) {
+    List<BigDecimal> result = new ArrayList<>();
+    for (ProductComponent productComponent : products) {
+      result.add(getDiscountFromProducts(
+          productComponent.getOldPrice(),
+          productComponent.getDiscountValue()
+      ));
+    }
+    return result;
   }
 
   public static List<String> getNamesFromProducts(List<ProductComponent> products) {
@@ -78,19 +116,12 @@ public class Helpers {
     return productNames;
   }
 
-  public static List<Double> getProductNewPrices(List<ProductComponent> products) {
-
-    List<String> pricesAsString = new ArrayList<>();
-    for (ProductComponent product : products) {
-      pricesAsString.add(product.getPrice());
+  public static List<BigDecimal> getProductPrices(List<ProductComponent> productComponents) {
+    List<BigDecimal> result = new ArrayList<>();
+    for (ProductComponent productComponent : productComponents) {
+      result.add(productComponent.getPrice());
     }
-
-    List<Double> pricesAsDouble = new ArrayList<>();
-    for (String price : pricesAsString) {
-      pricesAsDouble.add(Double.parseDouble(price.replace("€", "")
-          .replace(",", "")));
-    }
-    return pricesAsDouble;
+    return result;
   }
 
 }

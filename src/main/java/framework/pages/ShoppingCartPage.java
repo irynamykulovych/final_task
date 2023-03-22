@@ -28,7 +28,6 @@ public class ShoppingCartPage extends BasePage{
 
   @SneakyThrows
   public String getTotalPrice() {
-    Thread.sleep(5000);
     return find(totalPriceLocator).getText()
         .replaceAll("[^\\d.]", "");
   }

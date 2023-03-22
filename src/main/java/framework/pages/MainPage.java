@@ -1,13 +1,16 @@
 package framework.pages;
 
+import framework.pages.components.MenuCategory;
 import framework.pages.components.ProductComponent;
 import io.qameta.allure.Step;
 import java.util.ArrayList;
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import java.util.List;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class MainPage extends BasePage {
@@ -17,6 +20,7 @@ public class MainPage extends BasePage {
   private final By subscribeButtonLocator = By.xpath("//input[@value='Subscribe']");
   private final By dropDownLanguageMenuButtonLocator = By.xpath(
       "//ul[@class='dropdown-menu hidden-sm-down']//li");
+  private final By loaderLocator = By.id("loadingMessage");
   private final By languageButtonLocator = By.xpath("//span[@class='expand-more']");
   private final By ukraineLanguageLocator = By.xpath("//a[text()='Українська']");
   private final By allProductsButtonLocator = By.xpath(
@@ -25,9 +29,6 @@ public class MainPage extends BasePage {
   private final By accountNameLocator = By.xpath("//a[@class='account']/span");
   private final By searchFieldLocator = By.xpath(
       "//input[@placeholder='Search our catalog']");
-  private final By closesMenuLocator = By.id("category-3");
-  private final By accessoriesMenuLocator = By.id("category-6");
-  private final By artMenuLocator = By.id("category-9");
   private final By productContainer = By.xpath(
       "//article[contains(@class,'product-miniature')]");
   private final By priceDropLinkLocator = By.id("link-product-page-prices-drop-1");
@@ -43,6 +44,13 @@ public class MainPage extends BasePage {
   public String getTextUnderEmailField() {
     log.info("Get [text] under email field");
     return waitUntilElementPresence(textUnderEmailFieldLocator, 5).getText();
+  }
+
+  @Step("Wait for loader hide")
+  public void waitForPageLoad() {
+    log.info("Wait for loader hide");
+    WebElement loader = find(loaderLocator);
+    BasePage.getWaiter().until(ExpectedConditions.invisibilityOf(loader));
   }
 
   @Step("Check that characters on [SUBSCRIBE] button in uppercase")
@@ -66,6 +74,13 @@ public class MainPage extends BasePage {
   public List<WebElement> getAllLanguageFromDropDownMenu() {
     return findAll(dropDownLanguageMenuButtonLocator);
   }
+
+  @Getter
+  private final MenuCategory menuCategory;
+  public MainPage() {
+    menuCategory = new MenuCategory();
+  }
+
 
   @Step("Click on [All products] button")
   public ProductPage clickOnAllProductsButton() {
@@ -92,27 +107,6 @@ public class MainPage extends BasePage {
     return new SearchResultPage();
   }
 
-  public MainPage hoverMouseOverClothesCategory() {
-    waitUntilElementPresence(closesMenuLocator, 10);
-    hoverMouse(closesMenuLocator);
-    return this;
-  }
-
-  public boolean categoriesIsDisplayed(String category) {
-    return waitUntilVisible(By.xpath(String.format("//a[contains(text(),'%s')]", category)),
-        10).isDisplayed();
-  }
-
-  public void hoverMouseAccessoriesCategory() {
-    waitUntilVisible(accessoriesMenuLocator, 15);
-    hoverMouse(accessoriesMenuLocator);
-  }
-
-  public void hoverMouseArtCategory() {
-    waitUntilVisible(artMenuLocator, 15);
-    hoverMouse(artMenuLocator);
-  }
-
   public List<ProductComponent> getProductsFromProductsSection() {
     waitUntilElementPresence(productContainer, 10);
     List<ProductComponent> products = new ArrayList<>();
@@ -125,9 +119,9 @@ public class MainPage extends BasePage {
   }
 
   @Step("Click on 'Price drop' link")
-  public PricesDropPage clickOnPriceDropLink() {
+  public ProductPage clickOnPriceDropLink() {
     waitUntilElementPresence(priceDropLinkLocator, 10).click();
-    return new PricesDropPage();
+    return new ProductPage();
   }
 
 

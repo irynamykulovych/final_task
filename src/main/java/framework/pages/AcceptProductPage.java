@@ -54,14 +54,7 @@ public class AcceptProductPage extends BasePage{
   public String getOnePrice() {
     return waitUntilElementClickable(onePriceLocator, 10).getText()
         .replaceAll("[^\\d.]", "");
-
-//    public String getConfirmationText() {
-//      return find(confirmationTextLocator).getText()
-//          .replace(find(confirmationTextIconLocator).getText(), "").trim();
-//    }
   }
-
-
 
   @Step("Get total price")
   public String getTotalPrice() {

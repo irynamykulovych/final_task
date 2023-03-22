@@ -39,7 +39,7 @@ public class RegistrationWithInvalidDataTest extends BaseTest {
     String exceptedPopUpWithInvalidFormatText = "Invalid format.";
 
         softAssertions.assertThat(registrationPage.getInvalidFormatPopUp())
-        .as("Pop-up should appear with text 'Invalid format.' ")
+        .as("Pop-up should appear with text "+exceptedPopUpWithInvalidFormatText+" ")
         .isEqualTo(exceptedPopUpWithInvalidFormatText);
 
     softAssertions.assertAll();

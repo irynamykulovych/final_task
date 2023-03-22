@@ -3,6 +3,7 @@ package framework.pages;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Log4j2
 public class BasePage {
+
   private static final ThreadLocal<WebDriver> DRIVER_THREAD_LOCAL = new ThreadLocal<>();
   public static WebDriverWait wait;
 
@@ -50,6 +52,10 @@ public class BasePage {
     actions.moveToElement(element).build().perform();
   }
 
+  public static WebDriverWait getWaiter() {
+    return new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20));
+  }
+
   protected static WebElement waitUntilElementPresence(By locator, int seconds) {
     log.info("Wait for [{}] seconds until [{}] element will be presence", seconds, locator);
     return new WebDriverWait(getWebDriver(), Duration.ofSeconds(seconds))
@@ -66,6 +72,15 @@ public class BasePage {
     log.info("Wait for [{}] seconds until [{}] element will be clickable", seconds, locator);
     return new WebDriverWait(getWebDriver(), Duration.ofSeconds(seconds))
         .until(ExpectedConditions.elementToBeClickable(locator));
+  }
+
+  public static boolean isElementPresent(By locator) {
+    try {
+      getWebDriver().findElement(locator);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
   }
 
 }

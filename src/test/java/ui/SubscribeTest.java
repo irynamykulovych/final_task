@@ -23,18 +23,21 @@ public class SubscribeTest extends BaseTest {
 
     SoftAssertions softAssertions = new SoftAssertions();
 
+    //TODO
     softAssertions.assertThat(actualTextNearTheEmailField)
         .as("We expected that the text near the email field should be: "
             + "[Get our latest news and special sales]")
         .isEqualTo(exceptedTextNearTheEmailField);
 
+    //TODO
     softAssertions.assertThat(actualTextUnderEmailField)
         .as("We expected that the text under the email field should be: "
             + "[You may unsubscribe at any moment. "
             + "For that purpose, please find our contact info in the legal notice.]")
         .isEqualTo(exceptedTextUnderEmailField);
 
-    softAssertions.assertThat(actualUpperCaseOfSubscribeButton).as("We expected that "
+    softAssertions.assertThat(actualUpperCaseOfSubscribeButton)
+        .as("We expected that "
             + "the [SUBSCRIBE] button should be in uppercase")
         .isEqualTo(exceptedUpperCaseOfSubscribeButton);
     softAssertions.assertAll();

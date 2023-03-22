@@ -16,7 +16,6 @@ public class MyListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        log.info("******************** The best test ever ********************");
     }
 
     @Override
@@ -26,21 +25,17 @@ public class MyListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-
     }
 
     @Override
     public void onStart(ITestContext iTestContext) {
-
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-
     }
 }

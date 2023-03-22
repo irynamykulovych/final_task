@@ -6,11 +6,9 @@ import framework.pages.BasePage;
 import framework.pages.BrowserFactory;
 import framework.pages.BrowserFactory.Browsers;
 import framework.pages.MainPage;
-import java.time.Duration;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -32,8 +30,8 @@ public class BaseTest {
         driver.get("https://demo.prestashop.com/");
         driver.manage().window().setSize(new Dimension(width, height));
         BasePage.setDriverThreadLocal(driver);
-        BasePage.wait = new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20));
         MainPage mainPage = new MainPage();
+        mainPage.waitForPageLoad();
         getWebDriver().switchTo().frame("framelive");
     }
 

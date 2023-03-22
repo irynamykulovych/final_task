@@ -3,7 +3,9 @@ package ui;
 import framework.pages.MainPage;
 import framework.pages.ProductPage;
 import framework.pages.components.ProductComponent;
+import framework.pages.helpers.Category;
 import framework.pages.helpers.Helpers;
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -21,21 +23,20 @@ public class SortingCheckTest extends BaseTest {
   public void checkThatProductSortedCorrectly() {
 
     mainPage.clickOnAllProductsButton()
-        .clickSortByDropDown().selectAZSortByDropDown();
+        .clickSortByDropDown().clickOnCategory(Category.BY_NAME_A_Z.getOption());
 
     List<ProductComponent> products = Helpers.getAllProducts();
     List<String> expectedProductNames = Helpers.getNamesFromProducts(products);
     expectedProductNames.sort(Comparator.comparing(String::toLowerCase));
-    products = Helpers.getAllProducts();
+
 
     SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(Helpers.getNamesFromProducts(products))
         .as("Product list is not sorted correctly")
         .containsExactlyElementsOf(expectedProductNames);
-    softAssertions.assertAll();
 
-    productPage.clickSortByDropDown().selectZASortByDropDown();
+    productPage.clickSortByDropDown().clickOnCategory(Category.BY_NAME_Z_A.getOption());
     products = Helpers.getAllProducts();
     expectedProductNames = Helpers.getNamesFromProducts(products);
     expectedProductNames.sort(Collections.reverseOrder());
@@ -45,25 +46,23 @@ public class SortingCheckTest extends BaseTest {
         .as("Product list is not sorted correctly")
         .containsExactlyElementsOf(expectedProductNames);
 
-    productPage.clickSortByDropDown().selectLHSortByDropDown();
+    productPage.clickSortByDropDown().clickOnCategory(Category.BY_PRICE_LOW_HIGH.getOption());
     products = Helpers.getAllProducts();
-    List<Double> expectedProductPrice = Helpers.getProductNewPrices(products);
-    expectedProductPrice.sort(Comparator.comparing(Double::doubleValue));
-    softAssertions.assertThat(Helpers.getProductNewPrices(products))
+    List<BigDecimal> expectedProductPrice = Helpers.getSortedProductPrices(products);
+    expectedProductPrice.sort(Comparator.comparing(BigDecimal::doubleValue));
+    softAssertions.assertThat(Helpers.getSortedProductPrices(products))
         .as("Product list is not sorted correctly")
         .containsExactlyElementsOf(expectedProductPrice);
 
-    productPage.clickSortByDropDown().selectHLSortByDropDown();
+    productPage.clickSortByDropDown().clickOnCategory(Category.BY_PRICE_HIGH_LOW.getOption());
     products = Helpers.getAllProducts();
-    expectedProductPrice = Helpers.getProductNewPrices(products);
+    expectedProductPrice = Helpers.getSortedProductPrices(products);
     expectedProductPrice.sort(Collections.reverseOrder());
 
-    softAssertions.assertThat(Helpers.getProductNewPrices(products))
+    softAssertions.assertThat(Helpers.getSortedProductPrices(products))
         .as("Product list is not sorted correctly")
         .containsExactlyElementsOf(expectedProductPrice);
-
 
     softAssertions.assertAll();
   }
-
 }

@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
@@ -26,10 +27,9 @@ public class ProductDetailsPage extends BasePage {
       "//input[@title='Black']");
 
 
-  @SneakyThrows
   @Step("Select [Doter] paper type")
   public ProductDetailsPage selectDoterPaperType() {
-    Thread.sleep(5000);
+
     Select select = new Select(find(paperTypeDropDownLocator));
     select.selectByVisibleText("Doted");
     return this;
@@ -67,20 +67,17 @@ public class ProductDetailsPage extends BasePage {
     return new AcceptProductPage();
   }
 
-  @SneakyThrows
   @Step("Enter product name in [search] field")
   public SearchResultPage enterSearchProductName(String ProductName) {
-    Thread.sleep(5000);
-    waitUntilElementPresence(searchFieldProductLocator, 50).sendKeys(ProductName);
+    BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(searchFieldProductLocator));
+    waitUntilElementPresence(searchFieldProductLocator, 70).sendKeys(ProductName);
     log.info("Tap enter");
     find(searchFieldProductLocator).sendKeys(Keys.ENTER);
     return new SearchResultPage();
   }
 
-  @SneakyThrows
   @Step("Select [Black] color")
   public ProductDetailsPage selectColor() {
-    Thread.sleep(5000);
     find(selectColorLocator).click();
     return this;
   }
