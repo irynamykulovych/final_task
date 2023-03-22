@@ -16,30 +16,30 @@ import org.testng.annotations.BeforeMethod;
 public class BaseTest {
 
 
-    @BeforeMethod(alwaysRun = true)
-    public synchronized void setUp() {
+  @BeforeMethod(alwaysRun = true)
+  public synchronized void setUp() {
 
-        int width = Integer.parseInt(System.getProperty("browser.width"));
-        int height = Integer.parseInt(System.getProperty("browser.height"));
-        String browser = System.getProperty("browser.type");
+    int width = Integer.parseInt(System.getProperty("browser.width"));
+    int height = Integer.parseInt(System.getProperty("browser.height"));
+    String browser = System.getProperty("browser.type");
 
-        log.info("Tests will run at {}x{}", width, height);
+    log.info("Tests will run at {}x{}", width, height);
 
-        WebDriver driver = BrowserFactory.getBrowser(Browsers.valueOf(browser));
+    WebDriver driver = BrowserFactory.getBrowser(Browsers.valueOf(browser));
 
-        driver.get("https://demo.prestashop.com/");
-        driver.manage().window().setSize(new Dimension(width, height));
-        BasePage.setDriverThreadLocal(driver);
-        MainPage mainPage = new MainPage();
-        mainPage.waitForPageLoad();
-        getWebDriver().switchTo().frame("framelive");
+    driver.get("https://demo.prestashop.com/");
+    driver.manage().window().setSize(new Dimension(width, height));
+    BasePage.setDriverThreadLocal(driver);
+    MainPage mainPage = new MainPage();
+    mainPage.waitForPageLoad();
+    getWebDriver().switchTo().frame("framelive");
+  }
+
+  @AfterMethod(alwaysRun = true)
+  public void quite() {
+    if (BasePage.getDriverThreadLocal() != null) {
+      getWebDriver().quit();
+      BasePage.getDriverThreadLocal().remove();
     }
-
-    @AfterMethod(alwaysRun = true)
-    public void quite() {
-        if (BasePage.getDriverThreadLocal() != null) {
-            getWebDriver().quit();
-            BasePage.getDriverThreadLocal().remove();
-        }
-    }
+  }
 }

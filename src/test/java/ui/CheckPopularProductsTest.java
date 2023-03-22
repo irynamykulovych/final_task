@@ -10,7 +10,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners
-public class CheckPopularProductsTest extends BaseTest{
+public class CheckPopularProductsTest extends BaseTest {
 
   MainPage mainPage = new MainPage();
 

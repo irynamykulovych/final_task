@@ -57,7 +57,6 @@ public class AddingToCartTest extends BaseTest {
         .as("Total price is not equals expected")
         .isEqualTo(expectedTotalPrice);
 
-
     softAssertions.assertAll();
   }
 }

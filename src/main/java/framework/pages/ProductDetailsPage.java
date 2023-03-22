@@ -1,7 +1,6 @@
 package framework.pages;
 
 import io.qameta.allure.Step;
-import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -29,7 +28,6 @@ public class ProductDetailsPage extends BasePage {
 
   @Step("Select [Doter] paper type")
   public ProductDetailsPage selectDoterPaperType() {
-
     Select select = new Select(find(paperTypeDropDownLocator));
     select.selectByVisibleText("Doted");
     return this;
@@ -69,7 +67,8 @@ public class ProductDetailsPage extends BasePage {
 
   @Step("Enter product name in [search] field")
   public SearchResultPage enterSearchProductName(String ProductName) {
-    BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(searchFieldProductLocator));
+    BasePage.getWaiter()
+        .until(ExpectedConditions.visibilityOfElementLocated(searchFieldProductLocator));
     waitUntilElementPresence(searchFieldProductLocator, 70).sendKeys(ProductName);
     log.info("Tap enter");
     find(searchFieldProductLocator).sendKeys(Keys.ENTER);

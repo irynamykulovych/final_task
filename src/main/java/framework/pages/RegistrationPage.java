@@ -38,6 +38,7 @@ public class RegistrationPage extends BasePage {
   private final By placeOrderButtonLocator = By.xpath
       ("//div[@id='payment-confirmation']/div/button");
 
+
   @SneakyThrows
   @Step("Click on social title [Mr]")
   public RegistrationPage clickSocialTitleMr() {
@@ -114,11 +115,9 @@ public class RegistrationPage extends BasePage {
     return this;
   }
 
-  @SneakyThrows
   @Step("Enter address {address}")
   public RegistrationPage enterAddress(String address) {
-    Thread.sleep(5000);
-    find(addressLocator).sendKeys(address);
+    waitUntilElementPresence(addressLocator, 20).sendKeys(address);
     return this;
   }
 
@@ -154,18 +153,16 @@ public class RegistrationPage extends BasePage {
     return this;
   }
 
-  @SneakyThrows
   @Step("Set [Pay by Check] Payment method")
   public RegistrationPage clickPayByCheckPayment() {
-    Thread.sleep(5000);
+    BasePage.waitUntilElementPresence(payByCheckPaymentLocator,50);
     clickOnLocator(payByCheckPaymentLocator);
     return this;
   }
 
-  @SneakyThrows
   @Step("Click on ['I agree..'] checkbox")
   public RegistrationPage clickTermsCheckbox() {
-    Thread.sleep(5000);
+    BasePage.waitUntilElementPresence(termsCheckboxLocator,50);
     clickOnLocator(termsCheckboxLocator);
     return this;
   }

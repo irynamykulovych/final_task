@@ -77,6 +77,7 @@ public class MainPage extends BasePage {
 
   @Getter
   private final MenuCategory menuCategory;
+
   public MainPage() {
     menuCategory = new MenuCategory();
   }

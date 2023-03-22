@@ -5,7 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 @Log4j2
-public class AcceptProductPage extends BasePage{
+public class AcceptProductPage extends BasePage {
 
   private final By productSuccessfullyTitleLocator = By.id("myModalLabel");
   private final By paperTypeLocator = By.xpath("//strong[text()=' Doted']");

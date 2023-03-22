@@ -3,6 +3,7 @@ package framework.pages.components;
 import static framework.pages.BasePage.find;
 import static framework.pages.BasePage.getWebDriver;
 import static framework.pages.BasePage.isElementPresent;
+
 import framework.pages.helpers.MainCategory;
 import io.qameta.allure.Step;
 import java.util.ArrayList;
@@ -11,15 +12,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class MenuCategory {public final By subMenuValueLocator = By.xpath
-    (".//li[@class='category']/a");
+public class MenuCategory {
+
+  public final By subMenuValueLocator = By.xpath
+      (".//li[@class='category']/a");
   private final By clothesMenuLocator = By.id("category-3");
   private final By accessoriesMenuLocator = By.id("category-6");
   private final By artMenuLocator = By.id("category-9");
   private final By subMenuArtLocator = By.xpath
       ("//li[@id='category-9']//div[@class='popover " +
-      "sub-menu " +
-      "js-sub-menu collapse']");
+          "sub-menu " +
+          "js-sub-menu collapse']");
   private List<WebElement> subMenuElements;
 
   @Step("Hover over element")

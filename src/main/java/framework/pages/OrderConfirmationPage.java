@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class OrderConfirmationPage extends BasePage {
+
   private final By orderConfirmationLocator = By.xpath("//h3[@class='h1 card-title']");
   private final By lastTotalPriceLocator = By.xpath
       ("//tr[@class='total-value font-weight-bold']/td[2]");

@@ -45,7 +45,6 @@ public class CheckCategoriesTest extends BaseTest {
     softAssertions.assertThat(!isArtSubMenuExist)
         .as("The 'Art' category is not as expected");
 
-
     softAssertions.assertAll();
   }
 }

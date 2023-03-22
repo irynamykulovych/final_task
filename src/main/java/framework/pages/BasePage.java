@@ -17,7 +17,6 @@ import java.util.List;
 public class BasePage {
 
   private static final ThreadLocal<WebDriver> DRIVER_THREAD_LOCAL = new ThreadLocal<>();
-  public static WebDriverWait wait;
 
   public static ThreadLocal<WebDriver> getDriverThreadLocal() {
     return DRIVER_THREAD_LOCAL;
@@ -44,12 +43,6 @@ public class BasePage {
     WebElement element = find(locator);
     JavascriptExecutor executor = (JavascriptExecutor) getWebDriver();
     executor.executeScript("arguments[0].click()", element);
-  }
-
-  public void hoverMouse(By locator) {
-    WebElement element = find(locator);
-    Actions actions = new Actions(getWebDriver());
-    actions.moveToElement(element).build().perform();
   }
 
   public static WebDriverWait getWaiter() {

@@ -20,28 +20,36 @@ public class Helpers {
   private static final By productContainerLocator = By.xpath(
       "//div[@class='products row']/div");
   private static Faker faker = new Faker();
+
   public static String generateValidFirstName() {
     return faker.name().firstName();
   }
+
   public static String generateValidLastName() {
     return faker.name().lastName();
   }
+
   public static String generateValidEmail() {
     return faker.internet().emailAddress();
   }
+
   public static String generateValidPassword() {
     return faker.internet().password();
   }
+
   public static String generateBirthdate() {
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     return sdf.format(faker.date().birthday());
   }
+
   public static String generateAddress() {
     return faker.address().fullAddress();
   }
+
   public static String generatePostalCode() {
     return faker.address().zipCode().substring(0, 5);
   }
+
   public static String generateCity() {
     return faker.address().cityName();
   }

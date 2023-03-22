@@ -1,13 +1,13 @@
 package framework.pages;
 
 import io.qameta.allure.Step;
-import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 @Log4j2
-public class ShoppingCartPage extends BasePage{
+public class ShoppingCartPage extends BasePage {
 
   private final By proceedToCheckoutButtonLocator = By.xpath
       ("//div[@class='checkout cart-detailed-actions "
@@ -26,22 +26,21 @@ public class ShoppingCartPage extends BasePage{
     return new RegistrationPage();
   }
 
-  @SneakyThrows
   public String getTotalPrice() {
     return find(totalPriceLocator).getText()
         .replaceAll("[^\\d.]", "");
   }
 
-  @SneakyThrows
   public String getSubtotalPrice() {
-    Thread.sleep(5000);
+    BasePage.getWaiter()
+        .until(ExpectedConditions.visibilityOfElementLocated(subtotalPriceLocator));
     return find(subtotalPriceLocator).getText()
         .replaceAll("[^\\d.]", "");
   }
 
-  @SneakyThrows
   public String getShippingPrice() {
-    Thread.sleep(5000);
+    BasePage.getWaiter()
+        .until(ExpectedConditions.visibilityOfElementLocated(shippingPriceLocator));
     return find(shippingPriceLocator).getText()
         .replaceAll("[^\\d.]", "");
   }

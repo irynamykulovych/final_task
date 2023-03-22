@@ -30,6 +30,6 @@ public class RegistrationWithValidDataTest extends BaseTest {
 
     Assertions.assertThat(actualName)
         .as("Account name is not equals expected")
-        .isEqualTo(firstName + " " +lastName);
+        .isEqualTo(firstName + " " + lastName);
   }
 }

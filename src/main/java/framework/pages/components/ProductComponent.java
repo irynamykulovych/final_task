@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 @Getter
 public class ProductComponent {
+
   private final By priceLocator = By.xpath
       (".//div[@class='product-price-and-shipping']/span[@class='price']");
   private final By oldPriceLocator = By.xpath
@@ -39,13 +40,15 @@ public class ProductComponent {
 
     try {
       String stringDiscount = webElement.findElement(discountValueLocator).getText();
-      this.discountValue = Integer.parseInt(stringDiscount.substring(1, stringDiscount.length() - 1));
+      this.discountValue = Integer.parseInt(
+          stringDiscount.substring(1, stringDiscount.length() - 1));
     } catch (NoSuchElementException e) {
       this.discountValue = 0;
     }
 
     try {
-      this.oldPrice = new BigDecimal(webElement.findElement(oldPriceLocator).getText().substring(1));
+      this.oldPrice = new BigDecimal(
+          webElement.findElement(oldPriceLocator).getText().substring(1));
     } catch (NoSuchElementException e) {
       this.oldPrice = null;
     }

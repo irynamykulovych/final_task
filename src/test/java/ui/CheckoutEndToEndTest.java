@@ -93,7 +93,6 @@ public class CheckoutEndToEndTest extends BaseTest {
             + "[Your order is confirmed]")
         .isEqualTo(exceptedTitle);
 
-
     String lastSubtotalPriceStr = orderConfirmationPage.getLastSubtotalPrice();
     String lastShippingPriceStr = orderConfirmationPage.getLastShippingPrice();
     String lastTotalPriceStr = orderConfirmationPage.getLastTotalPrice();

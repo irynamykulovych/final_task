@@ -13,7 +13,7 @@ public class BrowserFactory {
   public static WebDriver getBrowser(Browsers browser) {
 
     ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
+    chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
 
     switch (browser) {
       case CHROME:

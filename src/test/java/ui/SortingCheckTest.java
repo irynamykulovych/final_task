@@ -29,7 +29,6 @@ public class SortingCheckTest extends BaseTest {
     List<String> expectedProductNames = Helpers.getNamesFromProducts(products);
     expectedProductNames.sort(Comparator.comparing(String::toLowerCase));
 
-
     SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(Helpers.getNamesFromProducts(products))
